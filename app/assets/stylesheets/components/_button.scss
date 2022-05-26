@@ -1,0 +1,17 @@
+.btn {
+  transition-duration: 0.25s;
+}
+
+.btn-brown {
+  color: #361500;
+  background-color: #aa8e6a;
+  border-radius: 45px;
+  border-color: transparent;
+}
+
+.btn-brown:hover {
+  color: #aa8e6a;
+  background-color: #361500;
+  border-radius: 45px;
+  border-color: transparent;
+}
