@@ -23,7 +23,7 @@
     <div class="col d-flex justify-content-center" style="padding-bottom: 15px">
     <%= link_to list do %>
       <div class="card" style="width: 19rem;">
-        <%= cl_image_tag list.photo.key, width: 300, height: 175, crop: :fill %>
+        <%= cl_image_tag list.image.key, width: 300, height: 175, crop: :fill %>
         <div class="card-img-overlay d-flex flex-column justify-content-center">
           <h5 class="card-title text-center"><%= list.name %></h5>
         </div>
