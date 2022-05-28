@@ -1,7 +1,8 @@
-<h1>New List</h1>
-<%= simple_form_for (@list) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :image, as: :file %>
-  <%= f.submit %>
-<% end %>
-<%= link_to "Back to lists", lists_path %>
+<div class="container d-flex flex-column align-items-center" id="new-list-container">
+  <h1 class="text-center" id="new-list">New List</h1>
+  <%= simple_form_for (@list), html: { class:"d-flex flex-column align-content-center" } do |f| %>
+    <%= f.input :name %>
+    <%= f.input :image, as: :file %>
+    <%= f.submit "Make it", class:"btn btn-brown" %>
+  <% end %>
+</div>

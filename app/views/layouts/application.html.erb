@@ -7,11 +7,44 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload", defer: true %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   </head>
 
   <body>
-    <%= yield %>
+    <div class="page-container">
+      <div class="navbar-container">
+        <nav class="my-navbar navbar">
+        <div class="container-fluid">
+          <%= link_to "/lists", data: { turbolinks: false } do %>
+            <div class="d-flex align-items-end">
+              <%= image_tag "logo.png", alt: "", width: 30 %>
+              <h4>Your Movies</h4>
+            </div>
+          <% end %>
+          <div>
+            <%= link_to "My Lists", "/lists/#my-list", class:"btn btn-brown", data: { turbolinks: false } %>
+            <%= link_to "+ New List", new_list_path, class:"btn btn-brown" %>
+          </div>
+        </div>
+        </nav>
+      </div>
+      <div class="content-container">
+        <%= yield %>
+      </div>
+      <div class="footer-container">
+        <div class="footer">
+          <div class="socials text-center">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+          </div>
+          <div class="footer-message text-center lh-sm">
+            <p>An average website.</p>
+            <p class="fst-italic">-Babs</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

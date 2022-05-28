@@ -1,17 +1,25 @@
 <div class="container">
-  <h1><%= @list.name %></h1>
-  <%= link_to "+ New Bookmark", new_list_bookmark_path(params[:id]) %>
-  <ul>
+  <h1 id="genre-heading"><%= @list.name %></h1>
+  <p><%= link_to "Delete list", list_path(@list), method: :delete, class:"btn btn-brown" %></p>
+  <%= link_to "New Bookmark", new_list_bookmark_path(params[:id]), class:"btn btn-brown" %>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @list.bookmarks.each do |bookmark| %>
-      <li>
-        <p><%= bookmark.movie.title %></p>
-        <p><%= bookmark.movie.overview %></p>
-        <%= image_tag bookmark.movie.poster_url, alt: "", width: 200 %>
-        <p><%= bookmark.movie.rating %></p>
-        <%= link_to "Delete bookmark", bookmark_path(bookmark), method: :delete %>
-      </li>
+      <div class="col" style="padding-bottom: 15px">
+        <div class="card card-bookmark" style="width: 19rem;">
+          <%= image_tag bookmark.movie.poster_url, alt: "", width: :cover %>
+          <div class="card-img-top">
+            <div class="card-bookmark-content d-flex row">
+              <h4 class="pb-1"><%= bookmark.movie.title %></h4 class="pb-1">
+              <p><%= bookmark.movie.overview %></p>
+              <p class="card-comment fst-italic">"<%= bookmark.comment %>"</p>
+              <div class="d-flex justify-content-between">
+                <p><%= bookmark.movie.rating %>/10</p>
+                <%= link_to raw("<i class='fa-solid fa-x'></i>"), bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?"}, class:"btn btn-brown text-end" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </ul>
-  <p><%= link_to "Delete list", list_path(@list), method: :delete %></p>
-  <%= link_to "Back to lists", lists_path %>
+  </div>
 </div>

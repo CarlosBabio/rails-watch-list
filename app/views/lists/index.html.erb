@@ -1,35 +1,26 @@
-<nav class="my-navbar navbar navbar-expand-lg navbar-light bg-light shadow-lg">
-  <div class="container-fluid">
-    <%= image_tag "logo.png", alt: "", width: 30 %>
-    <div>
-      <%= link_to "My Lists", "#my-list", class:"btn btn-brown" %>
-      <%= link_to "+ New List", new_list_path, class:"btn btn-brown" %>
-    </div>
-  </div>
-</nav>
-<div class="banner">
-  <div class=" banner-text d-flex flex-column">
-    <h1 class="text-center">Your Movies</h1>
-    <h2 class="text-center">Your way</h2>
+<div class="banner" id="banner">
+  <div class=" banner-text d-flex flex-column" data-controller="typed-js">
+    <h1 class="text-center" data-typed-js-target="headingOne"></h1>
+    <h2 class="text-center" data-typed-js-target="headingTwo"></h2>
   </div>
 </div>
-<div class="container py-5 d-flex flex-column">
+<div class="container d-flex flex-column" id="index-container">
   <div class="direction text-center">
-    <i class="fa-solid fa-arrow-down text-center"></i>
+    <%= link_to raw("<i class='fa-solid fa-arrow-down text-center'></i>"), "#my-list", class:"direction", data: { turbolinks: false }  %>
   </div>
   <h3 class="text-center" id="my-list">My Lists</h3>
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @lists.each do |list| %>
-    <div class="col d-flex justify-content-center" style="padding-bottom: 15px">
-    <%= link_to list do %>
-      <div class="card" style="width: 19rem;">
-        <%= cl_image_tag list.image.key, width: 300, height: 175, crop: :fill %>
-        <div class="card-img-overlay d-flex flex-column justify-content-center">
-          <h5 class="card-title text-center"><%= list.name %></h5>
-        </div>
+      <div class="col d-flex justify-content-center" style="padding-bottom: 15px">
+        <%= link_to list do %>
+          <div class="card" style="width: 19rem;">
+            <%= cl_image_tag list.image.key, width: 300, height: 175, crop: :fill %>
+            <div class="card-img-overlay d-flex flex-column justify-content-center">
+              <h5 class="card-title text-center"><%= list.name %></h5>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-    </div>
     <% end %>
   </div>
 </div>

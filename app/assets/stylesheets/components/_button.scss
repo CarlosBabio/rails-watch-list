@@ -1,5 +1,5 @@
 .btn {
-  transition-duration: 0.25s;
+  transition-duration: 0.2s;
 }
 
 .btn-brown {
@@ -14,4 +14,8 @@
   background-color: #361500;
   border-radius: 45px;
   border-color: transparent;
+}
+
+.btn-brown:focus {
+  box-shadow: 0 0 0 0.15rem #2e120521
 }

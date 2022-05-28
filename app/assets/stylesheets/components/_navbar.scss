@@ -1,4 +1,15 @@
 .my-navbar {
-  background-color: rgba(130, 111, 102, 0.5) !important;
-  border-bottom: solid #361500 1px !important;
+  background-color: rgba(130, 111, 102, 0.6) !important;
+  // opacity: 0.5;
+  // border-bottom: solid rgba(54, 21, 0, 1) 1px !important;
+  box-shadow: 0 0 5px 3px rgba(54, 21, 0, 0.5);
+  // background-image: linear-gradient(rgba(130, 111, 102, 0.5), rgba(92, 51, 31, 0.5));
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+h4 {
+  margin-bottom: 0;
+  color:#361500 !important;
 }
